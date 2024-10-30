@@ -8,6 +8,7 @@ import co.edu.personasapi.domain.TipoPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +24,7 @@ public class PersonaRest {
  @Autowired
  PersonaService service;
 
- @Autowired
- TipoPersonaService tpservice;
+ 
 
  @GetMapping("/submit")
  public List<Persona> listar(){
@@ -47,8 +47,10 @@ public class PersonaRest {
  return service.edit(p);
  }
 
- @GetMapping("/submit/tp")
- public List<TipoPersona> listarTp(){
- return tpservice.listar();
+ @DeleteMapping("/submit/{id}")
+ public Persona eliminar(@RequestBody Persona p, @PathVariable("id") int id){
+ p.setId(id);
+ return service.delete(id);
  }
+ 
 }

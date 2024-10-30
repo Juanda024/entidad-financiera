@@ -33,7 +33,13 @@ public class TipoPersonaServiceImp implements TipoPersonaService{
  
  @Override
  public TipoPersona delete(int id) {
- throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
- }
+     TipoPersona p = tp_repositorio.findById(id);
+     
+     if (p != null){
+         tp_repositorio.delete(p);
+     }
+     
+     return p;
+}
  
 }

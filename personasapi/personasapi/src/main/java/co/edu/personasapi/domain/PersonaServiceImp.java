@@ -27,7 +27,15 @@ public class PersonaServiceImp implements PersonaService{
  }
  @Override
  public Persona delete(int id) {
- throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      Persona p = repositorio.findById(id);
+      
+      if (p != null){
+          
+          repositorio.delete(p);
+        
+      }
+      
+      return p;
  }
 
 }
