@@ -5,37 +5,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaServiceImp implements PersonaService{
-	 @Autowired
-	 private PersonaRepository repositorio;
+public class ProductoServicelmp implements PoductoService{
+	
+	@Autowired
+	private ProductoRepository repositorio;
 	
 	@Override
-	public List<Persona> listar() {
-		return repositorio.findAll();
+	public List<Producto> Listar() {
+		return repositorio.FindAll();
 	}
 	@Override
-	public Persona listarId(int id) {
+	public Producto listarId(int id) {
 		return repositorio.findById(id);
 	}
 	@Override
-	public Persona add(Persona p) {
+	public Producto add(Producto p) {
 	return repositorio.save(p);
 	}
 	@Override
-	public Persona edit(Persona p) {
+	public Producto edit(Producto p) {
 	return repositorio.save(p);
 	}
 	@Override
-	public Persona delete(int id) {
-	     Persona p = repositorio.findById(id);
+	public Producto delete(int id) {
+		Producto p = repositorio.findById(id);
 	     
 	     if (p != null){
 	          
 	         repositorio.delete(p);
 	        
 	     }
-	      
-	      return p;
-	 }
+		return p;
+	}
 
 }
