@@ -28,7 +28,7 @@ public class ProductoRest {
 	@Autowired
 	PoductoService service;
 	
-	@GetMapping("/submit")
+	@GetMapping("/getall")
 	public List<Producto> listar(){
 		return service.Listar();
 	}
@@ -38,18 +38,18 @@ public class ProductoRest {
 		return service.add(p);
 	}
 	
-	@GetMapping("/submit/{id}")
+	@GetMapping("/getbyid/{id}")
 	 public Producto listarId(@PathVariable("id") int id){
 	 return service.listarId(id);
 	 }
 
-	 @PutMapping("/submit/{id}")
+	 @PutMapping("/editar/{id}")
 	 public Producto editar(@RequestBody Producto p, @PathVariable("id") int id){
 	 p.setId_pr(id);
 	 return service.edit(p);
 	 }
 
-	 @DeleteMapping("/submit/{id}")
+	 @DeleteMapping("/eliminar/{id}")
 	 public Producto eliminar(@RequestBody Producto p, @PathVariable("id") int id){
 	 p.setId_pr(id);
 	 return service.delete(id);

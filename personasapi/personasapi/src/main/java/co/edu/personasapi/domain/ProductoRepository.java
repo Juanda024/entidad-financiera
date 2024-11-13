@@ -5,7 +5,7 @@ import org.springframework.data.repository.Repository;
 
 public interface ProductoRepository extends Repository<Producto, Integer>{
 	
-	List<Producto> FindAll();
+	List<Producto> findAll();
 	
 	Producto findById(int id);
 	Producto save(Producto p);

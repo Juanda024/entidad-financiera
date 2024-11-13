@@ -11,9 +11,11 @@ public class solicitud {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_s;
 	
+        /*id_pr = id producto*/
 	@Column
 	private int id_pr;
 	
+        /*id_p = id persona*/
 	@Column
 	private int id_p;
 

@@ -12,7 +12,7 @@ public class ProductoServicelmp implements PoductoService{
 	
 	@Override
 	public List<Producto> Listar() {
-		return repositorio.FindAll();
+		return repositorio.findAll();
 	}
 	@Override
 	public Producto listarId(int id) {
