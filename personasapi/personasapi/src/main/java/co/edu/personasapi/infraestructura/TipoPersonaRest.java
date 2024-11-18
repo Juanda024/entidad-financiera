@@ -25,21 +25,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({"/tipopersonasrest"})
+@RequestMapping({ "/tipopersonasrest" })
 
 public class TipoPersonaRest {
-    
+
     @Autowired
     TipoPersonaService tpservice;
-    
+
     @GetMapping("/getall")
     public List<TipoPersona> listarTp(){
     return tpservice.listar();
+
+    @GetMapping("/getall")
+    public List<TipoPersona> listarTp() {
+        return tpservice.listar();
     }
-    
+
     @PostMapping("/submit")
-    public TipoPersona agregar(@RequestBody TipoPersona p){
-    return tpservice.add(p);
+    public TipoPersona agregar(@RequestBody TipoPersona p) {
+        return tpservice.add(p);
     }
     
     @GetMapping("/getbyid/{id}")
@@ -55,8 +59,22 @@ public class TipoPersonaRest {
     
     @DeleteMapping("/eliminar/{id}")
     public TipoPersona eliminar(@RequestBody TipoPersona p, @PathVariable("id") int id){
+
+    @GetMapping("/getbyid/{id}")
+    public TipoPersona listarId(@PathVariable("id") int id) {
+        return tpservice.listarId(id);
+    }
+
+    @PutMapping("/editar/{id}")
+    public TipoPersona editar(@RequestBody TipoPersona p, @PathVariable("id") int id) {
+        p.setId_tp(id);
+        return tpservice.edit(p);
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    public TipoPersona eliminar(@RequestBody TipoPersona p, @PathVariable("id") int id) {
         p.setId_tp(id);
         return tpservice.delete(id);
     }
-    
+
 }

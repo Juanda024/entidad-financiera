@@ -12,42 +12,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import co.edu.personasapi.domain.PoductoService;
-import co.edu.personasapi.domain.Producto;
+import co.edu.personasapi.domain.solicitud;
+import co.edu.personasapi.domain.solicitudService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({ "/productorest" })
+@RequestMapping({ "/solicitudrest" })
 
-public class ProductoRest {
+public class SolicitudRest {
 
 	@Autowired
-	PoductoService service;
+	private solicitudService service;
 
 	@GetMapping("/getall")
-	public List<Producto> listar() {
+	public List<solicitud> listar() {
 		return service.Listar();
 	}
 
 	@PostMapping("/submit")
-	public Producto agregar(@RequestBody Producto p) {
+	public solicitud agregar(@RequestBody solicitud p) {
 		return service.add(p);
 	}
 
 	@GetMapping("/getbyid/{id}")
-	public Producto listarId(@PathVariable("id") int id) {
+	public solicitud listarId(@PathVariable("id") int id) {
 		return service.listarId(id);
 	}
 
 	@PutMapping("/editar/{id}")
-	public Producto editar(@RequestBody Producto p, @PathVariable("id") int id) {
+	public solicitud editar(@RequestBody solicitud p, @PathVariable("id") int id) {
 		p.setId_pr(id);
 		return service.edit(p);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public Producto eliminar(@RequestBody Producto p, @PathVariable("id") int id) {
+	public solicitud eliminar(@RequestBody solicitud p, @PathVariable("id") int id) {
 		p.setId_pr(id);
 		return service.delete(id);
 	}

@@ -2,8 +2,6 @@ package co.edu.personasapi.infraestructura;
 
 import co.edu.personasapi.domain.Persona;
 import co.edu.personasapi.domain.PersonaService;
-import co.edu.personasapi.domain.TipoPersona;
-import co.edu.personasapi.domain.TipoPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({"/personasrest"})
+@RequestMapping({ "/personasrest" })
 public class PersonaRest {
 
     @Autowired
