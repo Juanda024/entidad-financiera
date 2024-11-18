@@ -1,4 +1,3 @@
-
 package co.edu.personasapi.infraestructura;
 
 import co.edu.personasapi.domain.Persona;
@@ -21,36 +20,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping({"/personasrest"})
 public class PersonaRest {
- @Autowired
- PersonaService service;
 
- 
+    @Autowired
+    PersonaService service;
 
- @GetMapping("/submit")
- public List<Persona> listar(){
- return service.listar();
- }
+    @GetMapping("/getall")
+    public List<Persona> listar() {
+        return service.listar();
+    }
 
- @PostMapping("/submit")
- public Persona agregar(@RequestBody Persona p){
- return service.add(p);
- }
+    @PostMapping("/submit")
+    public Persona agregar(@RequestBody Persona p) {
+        return service.add(p);
+    }
 
- @GetMapping("/submit/{id}")
- public Persona listarId(@PathVariable("id") int id){
- return service.listarId(id);
- }
+    @GetMapping("/getbyid/{id}")
+    public Persona listarId(@PathVariable("id") int id) {
+        return service.listarId(id);
+    }
 
- @PutMapping("/submit/{id}")
- public Persona editar(@RequestBody Persona p, @PathVariable("id") int id){
- p.setId(id);
- return service.edit(p);
- }
+    @PutMapping("/editar/{id}")
+    public Persona editar(@RequestBody Persona p, @PathVariable("id") int id) {
+        p.setId(id);
+        return service.edit(p);
+    }
 
- @DeleteMapping("/submit/{id}")
- public Persona eliminar(@RequestBody Persona p, @PathVariable("id") int id){
- p.setId(id);
- return service.delete(id);
- }
- 
+    @DeleteMapping("/eliminar/{id}")
+    public Persona eliminar(@RequestBody Persona p, @PathVariable("id") int id) {
+        p.setId(id);
+        return service.delete(id);
+    }
+
 }

@@ -32,7 +32,7 @@ public class TipoPersonaRest {
     @Autowired
     TipoPersonaService tpservice;
     
-    @GetMapping("/submit")
+    @GetMapping("/getall")
     public List<TipoPersona> listarTp(){
     return tpservice.listar();
     }
@@ -42,18 +42,18 @@ public class TipoPersonaRest {
     return tpservice.add(p);
     }
     
-    @GetMapping("/submit/{id}")
+    @GetMapping("/getbyid/{id}")
     public TipoPersona listarId(@PathVariable("id") int id){
     return tpservice.listarId(id);
     }
     
-    @PutMapping("/submit/{id}")
+    @PutMapping("/editar/{id}")
     public TipoPersona editar(@RequestBody TipoPersona p, @PathVariable("id") int id){
         p.setId_tp(id);
         return tpservice.edit(p);
     }
     
-    @DeleteMapping("/submit/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public TipoPersona eliminar(@RequestBody TipoPersona p, @PathVariable("id") int id){
         p.setId_tp(id);
         return tpservice.delete(id);
